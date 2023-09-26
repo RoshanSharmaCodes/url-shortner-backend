@@ -9,13 +9,13 @@ const supabaseConnection = createClient(process.env.SUPABASE_URL, process.env.SU
 app.get("/:id", async (req, res) => {
   const { id } = req.params
   const { data, error } = await supabaseConnection.from("urls").select("mainurl").eq("id", id)
+  console.log(data)
   if (error) {
     res.status(404).json({ error: "Not Found" })
   } else {
-    res.status(200).json({url:data[0]["mainurl"]})
-    // res.writeHead(200, {
-    //     Location: data[0]["mainurl"]
-    //   }).end();
+    res.writeHead(200, {
+        Location: data[0]["mainurl"]
+      }).end();
   }
 })
 
