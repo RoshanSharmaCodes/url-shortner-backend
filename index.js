@@ -14,7 +14,7 @@ app.get("/:id", async (req, res) => {
     res.status(404).json({ error: "Not Found" })
   } else {
     // res.status(200).json({url:data[0]["mainurl"]})
-    res.writeHead(200, {
+    res.writeHead(301, {
         Location: data[0]["mainurl"]
       }).end();
   }
