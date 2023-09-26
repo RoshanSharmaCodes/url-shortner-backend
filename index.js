@@ -21,5 +21,5 @@ app.get("/:id", async (req, res) => {
 })
 
 app.listen(4000, () => {
-  console.log("Server is Up and Running!")
+  console.log("Server is Up and Running on 4000!")
 })
